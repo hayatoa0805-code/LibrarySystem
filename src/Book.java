@@ -9,7 +9,7 @@ public class Book {
 		return "タイトル：" + title + "、　著者：" + author;
 	}
 
-	public Book(String title, String author, String isbn) {
+	public Book(String title, String author) {
 		this.title = title;
 		this.author = author;
 		this.isBorrowed = false;
