@@ -59,6 +59,13 @@ public class Library {
 	}
 
 	public void borrowBook(User user, Book book) {
+		if (!users.contains(user)) {
+			throw new IllegalStateException("このユーザーは登録されていません");
+		}
+		if (!books.contains(book)) {
+			throw new IllegalStateException("この本は登録されていません");
+		}
+
 		book.borrowBook();
 		user.borrowBook(book);
 
@@ -67,6 +74,10 @@ public class Library {
 	}
 
 	public void returnBook(User user, Book book) {
+		if (!user.hasBorrowes(book)) {
+			throw new IllegalStateException("このユーザーはこの本を借りていません");
+		}
+
 		book.returnBook();
 		user.returnBook(book);
 
